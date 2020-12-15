@@ -1,0 +1,9 @@
+{
+    "user": "YOUR_USER",
+    "password": "YOUR_PASS",
+    "discordToken": "YOUR_TOKEN",
+    "discordChannel": "YOUR_CHANNEL",
+    "jupyterLogin": "https://UNIV_URL/jupyterhub/hub/login",
+    "jupyterNotebook": "https://UNIV_URL/jupyterhub/user/YOUR_USER/notebooks/Documents/notes/notes_v2.ipynb",
+    "crontab": "0 10-19/2 * * 1-6"
+ }

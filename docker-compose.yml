@@ -1,0 +1,14 @@
+version: '3'
+services:
+  downloader:  
+    build: .
+    shm_size: '1gb' 
+    environment:
+      - TZ=Europe/Paris
+      - DISPLAY_WIDTH=1600
+      - DISPLAY_HEIGHT=968
+#    ports:
+#      - 8071:8080
+    volumes: 
+      - /app/docker/run/Mark_Scraper/data.txt:/home/data.txt
+      - /app/docker/run/Mark_Scraper/config.json:/home/config.json
