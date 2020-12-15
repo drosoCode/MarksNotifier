@@ -4,6 +4,7 @@ WARNING: This will only work for a specific software used at my uni
 
 ## Installation
  - Upload the notes_v2.ipynb to Jupyter
+ - Set your UNI_URL in the notebook
  - Rename config.sample.json to config.json
  - Create a discord bot and put the token in the config file
  - Enable dev mode on your discord client, right click on the channel where you want the notifications to be published and copy the identifier to the discordChannel field in the config file
