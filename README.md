@@ -7,6 +7,7 @@ WARNING: This will only work for a specific software used at my uni
  - Rename config.sample.json to config.json
  - Create a discord bot and put the token in the config file
  - Set your username and password and the jupyter endpoints in the config file
+ - Edit the volumes path in the `docker-compose.yml` file
  - run `docker-compose build` to build the container and `docker-compose up -d` to run it
 
 ## Usage
