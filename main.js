@@ -92,7 +92,7 @@ async function checkMarks()
         sendDiscord(el);
     })
 
-    if(cmp.length > 0)
+    if(cmp.length > 0 || oldMarks == '')
         fs.writeFileSync(dataFile, newMarks);
 
     console.log('End of scan')
