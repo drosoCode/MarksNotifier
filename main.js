@@ -88,8 +88,11 @@ async function checkMarks()
     let cmp = compare(parseHtml(oldMarks), parseHtml(newMarks));
     
     cmp.forEach(el => {
-        console.log('new mark for '+el['title']+': '+el['mark'])
-        sendDiscord(el);
+        if(el['title'] !== undefined && el['mark'] !== undefined)
+        {
+            console.log('new mark for '+el['title']+': '+el['mark'])
+            sendDiscord(el);
+        }
     })
 
     if(cmp.length > 0 || oldMarks == '')

@@ -1,6 +1,6 @@
 version: '3'
 services:
-  downloader:  
+  marks:  
     build: .
     shm_size: '1gb' 
     environment:
@@ -10,5 +10,5 @@ services:
 #    ports:
 #      - 8071:8080
     volumes: 
-      - /app/docker/run/Mark_Scraper/data.txt:/home/data.txt
-      - /app/docker/run/Mark_Scraper/config.json:/home/config.json
+      - /app/docker/run/MarksNotifier/data.txt:/home/data.txt
+      - /app/docker/run/MarksNotifier/config.json:/home/config.json
