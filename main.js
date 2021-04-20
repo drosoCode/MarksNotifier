@@ -85,19 +85,22 @@ async function checkMarks()
     console.log("Running scan at: " + new Date());
     let newMarks = await getMarks();
     let oldMarks = fs.readFileSync(dataFile).toString();
-    let cmp = compare(parseHtml(oldMarks), parseHtml(newMarks));
-    
-    cmp.forEach(el => {
-        if(el['title'] !== undefined && el['mark'] !== undefined)
-        {
-            console.log('new mark for '+el['title']+': '+el['mark'])
-            sendDiscord(el);
-        }
-    })
+    try  {
+        const cmp = compare(parseHtml(oldMarks), parseHtml(newMarks));
+        cmp.forEach(el => {
+            if(el['title'] !== undefined && el['mark'] !== undefined)
+            {
+                console.log('new mark for '+el['title']+': '+el['mark'])
+                sendDiscord(el);
+            }
+        })
 
-    if(cmp.length > 0 || oldMarks == '')
+        if(cmp.length > 0 || oldMarks == '')
+            fs.writeFileSync(dataFile, newMarks);
+    }
+    catch (e) {
         fs.writeFileSync(dataFile, newMarks);
-
+    }
     console.log('End of scan')
 }
 
