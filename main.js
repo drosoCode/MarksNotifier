@@ -35,12 +35,18 @@ async function getMarks()
     await page.waitForNavigation({timeout: 2000}).catch(() => {});
     
     await page.waitForSelector('.cm-s-ipython > div > textarea', { timeout: 2000 }).catch(() => {});
-    await page.type('.cm-s-ipython > div > textarea','auth = ("' + config['user'] + '", "' + config['password'] + '")');
+    let authStr = 'auth = ("' + config['user'] + '", "' + config['password'] + '")';
+    await page.type('.cm-s-ipython > div > textarea', authStr);
 
     await page.evaluate(() => {document.querySelector('#run_all_cells').childNodes[1].click()});
     
     await page.waitForSelector('.output_html', { timeout: 10000 }).catch(() => {});
     data = await page.evaluate(() => {return document.querySelector('.output_html').innerHTML;});
+
+    await page.focus('.cm-s-ipython > div > textarea');
+    await page.keyboard.press('End');
+    for(let i = 0; i < authStr.length; i++)
+        await page.keyboard.press('Backspace');
 
     await page.evaluate(() => {document.querySelector('#close_and_halt').childNodes[1].click()});
     await page.close();
